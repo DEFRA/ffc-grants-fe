@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  ffc-demo-web:
+    build:
+      context: .
+      target: production
+    image: ffc-demo-web
+    container_name: ffc-demo-web
+    environment:
+      APPINSIGHTS_CLOUDROLE: ffc-demo-web-local
+      APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
+      CLAIM_QUEUE_ADDRESS: ${CLAIM_QUEUE_ADDRESS:-notset}
+      COOKIE_PASSWORD: cookiecookiecookiecookiecookiecookie
+      OKTA_AUTH_SERVER_ID: ${OKTA_AUTH_SERVER_ID}
+      OKTA_CLIENT_ID: ${OKTA_CLIENT_ID}
+      OKTA_CLIENT_SECRET: ${OKTA_CLIENT_SECRET}
+      OKTA_DOMAIN: ${OKTA_DOMAIN}
+      OKTA_ENABLED: ${OKTA_ENABLED:-false}
+      MESSAGE_QUEUE_HOST: ${MESSAGE_QUEUE_HOST:-notset}
+      MESSAGE_QUEUE_PASSWORD: ${MESSAGE_QUEUE_PASSWORD:-notset}
+      MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
+      REDIS_HOSTNAME: redis
+      SITE_URL: http://localhost:3000
+      GOOGLE_TAG_MANAGER_KEY: GTM-N5QK7RL
